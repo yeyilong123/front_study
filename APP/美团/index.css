@@ -1,0 +1,26 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+body{
+    font-size: 0.32rem;
+}
+#nav{
+    background: #00c2ae;
+    display: flex;
+    height: 1.01rem;
+}
+#nav .address{
+    width: 1.67rem;
+    line-height: 1.01rem;
+    text-align: center;
+}
+#nav .mine{
+    width: 0.94rem;
+    line-height: 1.01rem;
+    text-align: center;
+}
+#nav .search{
+    text-align: center;
+    line-height: 1.01rem;
+}

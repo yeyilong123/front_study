@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+
+        .wrapper{
+            margin: 0 auto;
+            width: 960px;
+            height: 100%;
+        }
+
+        h2{
+            background: #cccccc;
+            height: 60px;
+            text-align: center;
+            line-height: 60px;
+            margin-top: 50px;
+        }
+
+        img{
+            width: 960px;
+        }
+
+        #mid-img{
+            display: none;
+        }
+
+        #small-img{
+            display: none;
+        }
+
+        .left{
+            float: left;
+            height: 300px;
+            width: 630px;
+            background: #ff0000;
+        }
+
+        .right{
+            float: right;
+            width: 300px;
+            height: 300px;
+            background: #00ff00;
+        }
+
+        .container{
+            overflow: hidden;
+        }
+        
+        @media screen and (max-width:960px){
+            .wrapper{
+                width: 100%;
+            }
+            #big-img{
+                display: none;
+            }
+            #mid-img{
+                display: block;
+                width: 100%;
+            }
+            .left{
+                width: 66%;
+            }
+            .right{
+                width: 31%;
+            }
+        }
+
+        @media screen and (max-width:480px){
+            .right,.left{
+                width: 100%;
+            }
+            #mid-img{
+                display: none;
+            }
+            #small-img{
+                display: block;
+                width: 100%;
+            }
+        }
+
+        .left{
+            display: table;
+        }
+
+        .right{
+            display: table
+        }
+
+        p{
+            display: table-cell;
+            vertical-align: middle;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    
+    <div class = 'wrapper'>
+        <h2>页头</h2>
+        <h2>标题</h2>
+
+        <img id = 'big-img' src="img/01.jpg" alt="">
+        <img id = 'mid-img' src="img/01_s_2x.jpg" alt="">
+        <img id = 'small-img' src="img/01_s.jpg" alt="">
+        
+        <div class = 'container'>
+            <div class = 'left'>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris sem erat, egestas quis luctus ut, rhoncus vitae risus. Integer venenatis libero sit amet sapien dictum, quis bibendum mi volutpat. Cras pretium quam quis magna facilisis, eget feugiat nisi lacinia.</p>
+            </div>
+            <div class = 'right'>
+                <p>Donec dolor arcu, interdum sed turpis faucibus, placerat ultricies felis. Donec pulvinar gravida rhoncus. Suspendisse vestibulum est eget dolor lobortis.</p>
+            </div>
+        </div>
+        <h2>尾页</h2>
+        
+    </div>
+</body>
+</html>
