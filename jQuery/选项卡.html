@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+
+    <style>
+
+        #container{
+            position: relative;
+        }
+
+        #menu li{
+            width: 50px;
+            height: 20px;
+            border: 1px solid #ff0;
+            text-decoration: none;
+            list-style: none;
+            float: left;
+            cursor: pointer;
+        }
+
+        #container .view{
+            display: block;
+        }
+
+        #container div{
+            display: none;
+            width: 200px;
+            height: 150px;
+            border: 1px solid #f00;
+            position: absolute;
+            top: 22px;
+            left: 40px;
+        }
+
+        #menu .selected{
+            background: #cccccc;
+        }
+    </style>
+</head>
+<body>
+    <div id = 'container'>
+        <ul id = 'menu'>
+            <li class = 'selected'>111</li>
+            <li>222</li>
+            <li>333</li>
+        </ul>
+
+        <div class = 'view'>111</div>
+        <div>222</div>
+        <div>333</div>
+    </div>
+    
+    <script src="jquery-1.12.4.js"></script>
+    <script>
+        $('li').on('click',function(){
+            $(this).addClass('selected').siblings().removeClass('selected');
+            $('#container div').eq($(this).index()).addClass('view').siblings().removeClass('view');
+        })
+    </script>
+</body>
+</html>

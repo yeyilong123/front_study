@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+        }
+
+        #container {
+            width: 750px;
+            height: 291px;
+            margin: 100px auto;
+            position: relative;
+        }
+
+        #selected {
+            list-style: none;
+        }
+
+        #selected li {
+            float: left;
+            width: 20px;
+            height: 20px;
+            background: rgba(0, 0, 0, 0.4);
+            border-radius: 5px;
+            line-height: 20px;
+            text-align: center;
+            margin-right: 5px;
+            cursor: pointer;
+            color: #fff;
+        }
+
+        .active img {
+            display: none;
+        }
+
+        #container .view {
+            display: block;
+        }
+
+        #selected {
+            position: absolute;
+            right: 10px;
+            bottom: 10px;
+        }
+
+        #selected .point {
+            background: #ff0036;
+        }
+
+        #pre,
+        #next {
+            width: 20px;
+            height: 20px;
+            background: rgba(0, 0, 0, 0.4);
+            float: left;
+            border-radius: 5px;
+            line-height: 20px;
+            text-align: center;
+            position: absolute;
+            cursor: pointer;
+            color: #fff;
+        }
+
+        #pre {
+            bottom: 10px;
+            left: 10px;
+        }
+
+        #next {
+            bottom: 10px;
+            left: 35px;
+        }
+    </style>
+</head>
+
+<body>
+    <div id='container'>
+        <div class='active'>
+            <img class='view' src="img/1.jpg" alt="">
+            <img src="img/2.jpg" alt="">
+            <img src="img/3.jpg" alt="">
+            <img src="img/4.jpg" alt="">
+            <img src="img/5.jpg" alt="">
+        </div>
+
+        <ul id='selected'>
+            <li class='point'>1</li>
+            <li>2</li>
+            <li>3</li>
+            <li>4</li>
+            <li>5</li>
+        </ul>
+
+        <span id='pre'>&lt;</span>
+        <span id='next'>&gt;</span>
+    </div>
+
+    <script src="jquery-1.12.4.js"></script>
+    <script>
+
+        var Now = 0;
+        $('li').on('click', function () {
+            Now = $(this).index();
+            $(this).addClass('point').siblings().removeClass('point');
+            $('img').eq($(this).index()).addClass('view').siblings().removeClass('view');
+        })
+
+        $('#pre').on('click', function () {
+            if (Now == 0) {
+                Now = 4;
+            } else {
+                Now--;
+            }
+            $('img').eq(Now).addClass('view').siblings().removeClass('view');
+            $('li').eq(Now).addClass('point').siblings().removeClass('point');
+        })
+
+        $('#next').on(('click'),function(){
+            if(Now == 4){
+                Now = 0;
+            }else{
+                Now++;
+            }
+            $('img').eq(Now).addClass('view').siblings().removeClass('view');
+            $('li').eq(Now).addClass('point').siblings().removeClass('point');
+        })
+
+        setInterval(function(){
+            if(Now == 4){
+                Now = 0;
+            }else{
+                Now++;
+            }
+            $('img').eq(Now).addClass('view').siblings().removeClass('view');
+            $('li').eq(Now).addClass('point').siblings().removeClass('point');
+        },1000)
+    </script>
+</body>
+
+</html>

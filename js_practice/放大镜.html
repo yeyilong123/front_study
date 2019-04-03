@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+
+        #imgs{
+            width: 400px;
+            height: 400px;
+            position: relative;
+            float: left;
+        }
+
+        #bigger{
+            width: 400px;
+            height: 400px;
+            overflow: hidden;
+            display: none;
+            float: left;
+        }
+
+        #selected{
+            width: 200px;
+            height: 200px;
+            background: rgba( 255, 255, 255, 0.4);
+            position: absolute;
+            top: 0px;
+            left: 0px;
+            display: none;
+        }
+
+        #bigimg{
+            position: relative;
+        }
+    </style>
+</head>
+<body>
+    <div id = 'imgs'>
+        <img id = 'origin' src="img/small_img.jpg" alt="">
+        <div id = 'selected'></div>
+    </div>
+    <div id = 'bigger'><img id = 'bigimg' src="img/big_img.jpg" alt=""></div>
+    
+    <script>
+        var oImgs = document.getElementById('imgs');
+        var oSelected = document.getElementById('selected');
+        var oBigger = document.getElementById('bigger');
+        var oBigimg = document.getElementById('bigimg');
+
+        oImgs.onmouseover = function(e){
+            oSelected.style.display = 'block';
+            oBigger.style.display = 'block';
+            oImgs.onmousemove = function(e){
+                var x = e.clientX - oSelected.offsetWidth/2;
+                var y = e.clientY - oSelected.offsetHeight/2;
+                if(x < 0){
+                    x = 0;
+                }
+                if(y < 0){
+                    y = 0;
+                }
+
+                var xMax = oImgs.offsetWidth - oSelected.offsetWidth;
+                var yMax = oImgs.offsetHeight - oSelected.offsetHeight;
+                if(x > xMax){
+                    x = xMax;
+                }
+                if(y > yMax){
+                    y = yMax;
+                }
+                
+                oSelected.style.top = y + 'px';
+                oSelected.style.left = x + 'px';
+
+                var rateX = oSelected.offsetLeft/(oImgs.offsetWidth - oSelected.offsetWidth);
+                var rateY = oSelected.offsetTop/(oImgs.offsetHeight - oSelected.offsetHeight);
+                oBigimg.style.left = -rateX * (oBigimg.offsetWidth - oBigger.offsetWidth) + 'px';
+                oBigimg.style.top = -rateY * (oBigimg.offsetHeight - oBigger.offsetHeight) + 'px';
+                
+                // oBigimg.style.left = -oSelected.offsetLeft * 2 + 'px';
+                // oBigimg.style.top = -oSelected.offsetTop * 2 + 'px';
+            }
+        }
+
+        oImgs.onmouseout = function(e){
+            document.onmousemove = null;
+            oSelected.style.display = 'none';
+            oBigger.style.display = 'none';
+        }
+    </script>
+</body>
+</html>

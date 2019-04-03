@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        var lay = prompt('输入*的层数');
+            for(a = 1;a<=lay;a++){
+                for(var blk = lay - a;blk>0;blk--){
+                    document.write('&nbsp;');
+                }
+                for(var sym = a;sym>0;sym--){
+                    document.write('*' + '&nbsp;');
+                }
+                document.write('<br>');
+            }
+    </script>
+</body>
+</html>

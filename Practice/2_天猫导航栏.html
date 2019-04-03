@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>天猫商城</title>
+
+    <style>
+
+        *{
+            padding: 0;
+            margin: 0;
+        }
+
+        #item .menu{
+            list-style: none;
+            float: left;
+            width: 100px;
+            height: 50px;
+            background: orange;
+            margin-right: 10px;
+            line-height: 50px;
+            text-align: center;
+        }
+
+        #item .menu a{
+            text-decoration: none;
+            width: 100px;
+            height: 50px;
+            display: block;
+        }
+
+        #item .menu:hover{
+            background: #cccccc;
+        }
+
+        #item .submenu{
+            background: orange;
+            cursor: pointer;
+        }
+
+        #item .submenu:hover{
+            background: #cccccc;
+        }
+
+        #item .submenu{
+            display: none;
+        }
+
+        #item .menu:hover .submenu{
+            display: block;
+        }
+    </style>
+</head>
+<body>
+
+    <ul id="item">
+        <li class="menu"><a href="">针织衫</a>
+            <ul>
+                <li class="submenu">天猫</li>
+                <li class="submenu">京东</li>
+                <li class="submenu">淘宝</li>
+            </ul>
+        </li>
+        <li class="menu"><a href="">连衣裙</a>
+            <ul>
+                <li class="submenu">天猫</li>
+                <li class="submenu">淘宝</li>
+                <li class="submenu">京东</li>
+            </ul>
+        </li>
+        <li class="menu"><a href="">四件套</a></li>
+        <li class="menu"><a href="">摄像头</a></li>
+        <li class="menu"><a href="">客厅灯</a></li>
+    </ul>
+</body>
+</html>

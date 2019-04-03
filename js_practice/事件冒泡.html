@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+
+    <style>
+        #div1{
+            width: 200px;
+            height: 200px;
+            background: #ff0000;
+        }
+
+        #div2{
+            width: 100px;
+            height: 100px;
+            background: #0f0;
+        }
+    </style>
+</head>
+<body>
+    <div id="div1">
+        <div id="div2">
+            123
+        </div>
+    </div>
+
+    <script>
+        var oDiv1 = document.getElementById('div1');
+        var oDiv2 = document.getElementById('div2');
+
+        oDiv1.addEventListener('click',function(){
+            console.log('111 冒泡');
+        },false);
+        oDiv2.addEventListener('click',function(){
+            console.log('222 冒泡');
+        },false);
+
+        oDiv1.addEventListener('click',function(){
+            console.log('111 捕获');
+        },true);
+        oDiv2.addEventListener('click',function(){
+            console.log('222 捕获');
+        },true);
+    </script>
+    
+</body>
+</html>

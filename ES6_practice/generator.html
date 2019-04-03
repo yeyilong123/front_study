@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function * fn(){
+            console.log("开始");
+            yield way1();
+            yield wait();
+            yield way2();
+            console.log("完成");
+        }
+        let f = fn();
+        f.next();
+
+        function way1(){
+            console.log("开始请求1");
+            setTimeout(() => {
+                console.log("请求1完成,准备请求2");
+            },1000)
+        }
+
+        function wait(){
+            setTimeout(function(){
+                console.log("开始请求2");
+            },1000)
+            f.next();
+        }
+
+        function way2(){
+            console.log("请求2中...");
+            setTimeout(function(){
+                console.log("请求2完成");
+            },1000)
+            f.next();
+        }
+    </script>
+</body>
+</html>

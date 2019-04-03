@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <div id = 'container'>
+        <div id = 'one'>111</div>
+        <div id = 'two'>222</div>
+    </div>
+
+    <script>
+        var oContainer = document.getElementById('container');
+        var oOne = document.getElementById('one');
+        var oTwo = document.getElementById('two');
+        var oH2 = document.createElement('h2');
+
+        oH2.innerHTML = 'haha';
+        
+        oContainer.appendChild(oH2);
+        oContainer.replaceChild(oH2, oOne);
+        oContainer.removeChild(oTwo);
+        oContainer.insertBefore(oH2,oTwo);
+    </script>
+</body>
+</html>

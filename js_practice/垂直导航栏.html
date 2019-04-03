@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+
+    <style>
+        *{
+            padding: 0;
+            margin: 0;
+        }
+
+        li{
+            list-style: none;
+            text-decoration: none;
+            width: 200px;
+            height: 30px;
+            border: 2px solid #ff0;
+            text-align: center;
+            line-height: 30px;
+        }
+
+        #sex,#age{
+            width: 200px;
+            height: 50px;
+            background: #f00;
+            text-align: center;
+            line-height: 50px;
+            cursor: pointer;
+            border: 2px solid #ccc;
+        }
+
+        #select-sex,#select-age{
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <div id = 'container'>
+        <div>
+            <div id = 'sex'>性别</div>
+            <ul id = 'select-sex'>
+                <li>男</li>
+                <li>女</li>
+            </ul>
+        </div>
+
+        <div>
+            <div id = 'age'>年龄</div>
+            <ul id = 'select-age'>
+                <li>16</li>
+                <li>17</li>
+                <li>18</li>
+            </ul>
+        </div>
+    </div>
+
+    <script>
+        var oSex = document.getElementById('sex');
+        var oAge = document.getElementById('age');
+        var oSelectSex = document.getElementById('select-sex');
+        var oSelectAge = document.getElementById('select-age');
+        var i = 0;
+        var j = 0;
+
+        oSex.onclick = function(){
+            i++;
+            if(i % 2 == 1){
+                oSelectSex.style.display = 'block';
+            }else{
+                oSelectSex.style.display = 'none';
+            }
+            
+        }
+
+        oAge.onclick = function(){
+            j++;
+            if(j % 2 == 1){
+                oSelectAge.style.display = 'block';
+            }else{
+                oSelectAge.style.display = 'none';
+            }
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+
+    <style>
+        *{
+            padding: 0;
+            margin: 0;
+        }
+
+        #container{
+            width: 750px;
+            height: 291px;
+            margin: 0 auto;
+            position: relative;
+        }
+
+        #selected{
+            list-style: none;
+            position: absolute;
+            bottom: 10px;
+            left: 330px;
+        }
+
+        #selected li{
+            width: 30px;
+            height: 5px;
+            background: rgba( 0, 0, 0, 0.4);
+            float: left;
+            margin-right: 5px;
+        }
+
+        #img-box img{
+            transition: all 2s ease;
+            position: absolute;
+        }
+
+        #img-box{
+            position: relative;
+        }
+
+        #img-box .view{
+            opacity: 1;
+        }
+
+        #img-box img{
+            opacity: 0;
+        }
+
+        #selected .choice{
+            cursor: pointer;
+            background: rgba( 0, 0, 0, 0.2);
+        }
+    </style>
+</head>
+<body>
+    <div id = 'container'>
+        <div id = 'img-box'>
+            <img class = 'view' src="img/1.jpg" alt="">
+            <img src="img/2.jpg" alt="">
+            <img src="img/3.jpg" alt="">
+        </div>
+
+        <ul id = 'selected'>
+            <li class = 'choice'></li>
+            <li></li>
+            <li></li>
+        </ul>
+    </div>
+
+    <script>
+        var aLi = document.getElementsByTagName('li');
+        var aImg = document.getElementsByTagName('img');
+
+        for(var i = 0; i<aLi.length; i++){
+            aLi[i].index = i;
+            
+            aLi[i].onmouseover = function(){
+
+                for(var j = 0; j<aLi.length; j++){
+                    aLi[j].className = '';
+                    aImg[j].style.opacity = '0';
+                }
+
+                this.className = 'choice';
+                aImg[this.index].style.opacity = '1';
+            }
+            
+        }
+    </script>
+</body>
+</html>

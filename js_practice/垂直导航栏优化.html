@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+
+    <style>
+        *{
+            padding: 0;
+            margin: 0;
+        }
+
+        li{
+            text-decoration: none;
+            list-style: none;
+        }
+
+        h2{
+            background: #f00;
+            width: 200px;
+            height: 50px;
+        }
+
+        li{
+            width: 200px;
+            height: 30px;
+            background: #ccc;
+        }
+
+        ul{
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <div>
+        <h2>性别</h2>
+        <ul>
+            <li>男</li>
+            <li>女</li>
+            <li>中</li>
+        </ul>
+        <h2>年龄</h2>
+        <ul>
+            <li>16</li>
+            <li>17</li>
+            <li>18</li>
+        </ul>
+    </div>
+
+    <script>
+        var aH2 = document.getElementsByTagName('h2');
+        var aUl = document.getElementsByTagName('ul');
+
+        for(var i = 0; i < aH2.length; i++){
+            aH2[i].index = i;
+            aH2[i].onclick = function(){
+                if(aUl[this.index].style.display == '' || aUl[this.index].style.display == 'none'){
+                    aUl[this.index].style.display = 'block';
+                }else if(aUl[this.index].style.display == 'block'){
+                    aUl[this.index].style.display = 'none';
+                }
+                
+            }
+        }
+    </script>
+</body>
+</html>

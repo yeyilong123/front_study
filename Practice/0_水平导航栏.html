@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>水平导航栏</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+
+        body{
+            width: 700px; 
+        }
+
+        #list .item{
+            background: #ff0000;
+            width: 150px;
+            height: 50px;
+            float: left;
+            margin-right: 5px;              /* 123455 */
+        }
+
+        #list .item >a{
+            width: 150px;
+            height: 50px;
+            display: block;
+            text-align: center;
+            line-height: 50px;
+            text-decoration: none;
+            color: #fff;
+        }
+        #list .item:hover {
+            background: orange;
+        }
+
+        li{
+            list-style: none;
+        }
+
+        #list .submenu{
+            background: #ff0000;
+        }
+
+        #list .submenu >li{
+            width: 150px;
+            height: 50px;
+            text-align: center;
+            line-height: 50px;
+            background: #cccccc;
+        }
+
+        #list .submenu a{
+            text-decoration: none;
+        }
+
+        #list .submenu{
+            cursor: pointer;            /* 选中后为小手*/
+        }
+
+        #list .submenu >li:hover{
+            background: orange;
+        }
+
+        .submenu{
+            display: none;
+        }
+
+        #list .item:hover .submenu{
+            display: block;
+        }
+    </style>
+</head>
+<body>
+    <ul id="list">
+        <li class="item"><a href="">Link One</a></li>
+        <li class="item"><a href="">Link Two</a></li>
+        <li class="item"><a href="">Link Three</a></li>
+        <li class="item"><a href="">Link Four</a>
+            <ul class="submenu">
+                <li>鞋子</li>
+                <li>衣服</li>
+                <li>裤子</li>
+                <li>帽子</li>
+            </ul>
+        </li>
+    </ul>
+</body>
+</html>

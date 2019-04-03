@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+    <style>
+
+        body{
+            margin: 0;
+            padding: 0;
+            perspective: 800px;
+            perspective-origin:50% 50%;
+        }
+
+
+        .tube{
+            width: 100px;
+            height: 100px;
+            background: #999999;
+            border: 1px solid pink;
+            font-size: 30px;
+            text-align: center;
+            line-height: 100px;
+            -webkit-border-radius: 10px;
+            -moz-border-radius: 10px;
+            border-radius: 10px;
+            position:absolute;
+            opacity: .6;
+        }
+
+        .contain{
+            margin: 0 auto;
+            margin-top: 100px;
+            width: 100px;
+            -webkit-animation: rotate 2s linear infinite;
+            -o-animation: rotate 2s linear infinite;
+            animation: rotate 2s linear infinite;
+            transform-style: preserve-3d;
+        }
+
+        .one{
+            -webkit-transform: rotateY(-90deg) translateZ(50px);
+            -moz-transform: rotateY(-90deg) translateZ(50px);
+            -ms-transform: rotateY(-90deg) translateZ(50px);
+            -o-transform: rotateY(-90deg) translateZ(50px);
+            transform: rotateY(-90deg) translateZ(50px);
+        }
+
+        .two{
+            -webkit-transform: rotateY(90deg) translateZ(50px);
+            -moz-transform: rotateY(90deg) translateZ(50px);
+            -ms-transform: rotateY(90deg) translateZ(50px);
+            -o-transform: rotateY(90deg) translateZ(50px);
+            transform: rotateY(90deg) translateZ(50px);
+        }
+
+        .three{
+            -webkit-transform: rotateX(90deg) translateZ(50px);
+            -moz-transform: rotateX(90deg) translateZ(50px);
+            -ms-transform: rotateX(90deg) translateZ(50px);
+            -o-transform: rotateX(90deg) translateZ(50px);
+            transform: rotateX(90deg) translateZ(50px);
+        }
+
+        .four{
+            -webkit-transform: rotateX(-90deg) translateZ(50px);
+            -moz-transform: rotateX(-90deg) translateZ(50px);
+            -ms-transform: rotateX(-90deg) translateZ(50px);
+            -o-transform: rotateX(-90deg) translateZ(50px);
+            transform: rotateX(-90deg) translateZ(50px);
+        }
+
+        .five{
+            -webkit-transform: rotateY(180deg) translateZ(50px);
+            -moz-transform: rotateY(180deg) translateZ(50px);
+            -ms-transform: rotateY(180deg) translateZ(50px);
+            -o-transform: rotateY(180deg) translateZ(50px);
+            transform: rotateY(180deg) translateZ(50px);
+        }
+
+        .six{
+            -webkit-transform: translateZ(50px);
+            -moz-transform: translateZ(50px);
+            -ms-transform: translateZ(50px);
+            -o-transform: translateZ(50px);
+            transform: translateZ(50px);
+        }
+
+        @keyframes rotate{
+            to{
+                -webkit-transform: rotateY(360deg);
+                -moz-transform: rotateY(360deg);
+                -ms-transform: rotateY(360deg);
+                -o-transform: rotateY(360deg);
+                transform: rotateY(360deg);
+            }
+        }
+    </style>
+</head>
+<body>
+<div class="contain">
+    <div class="tube one">1</div>
+    <div class="tube two">2</div>
+    <div class="tube three">3</div>
+    <div class="tube four">4</div>
+    <div class="tube five">5</div>
+    <div class="tube six">6</div>
+</div>
+</body>
+</html>
