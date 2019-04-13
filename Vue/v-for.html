@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+
+    <div id = 'app'>
+        <div v-for="use in arr">
+            {{ use }}
+        </div>
+
+        <div v-for="user in list">
+            {{ user }}
+        </div>
+    </div>
+    
+    <script src="vue.js"></script>
+    <script>
+        
+        new Vue({
+            el: '#app',
+            data: {
+                arr: ['html', 'css', 'javascript'],
+                list:[
+                {
+                    name: 张三,
+                    age: 18
+                },
+                {
+                    name: 李四,
+                    age: 15
+                },
+                {
+                    name: 王五,
+                    age: 30
+                }]
+            }
+        })
+    </script>
+</body>
+</html>
