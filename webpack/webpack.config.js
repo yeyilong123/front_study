@@ -4,11 +4,11 @@ const ExtractTextPlugin = require("extract-text-webpack-plugin");
 const glob = require('glob');
 const PurifyCSSPlugin = require("purifycss-webpack");
 const webpack = require("webpack");
+const entry = require('./entry.js');
+var CopyWebpackPlugin = require('copy-webpack-plugin');
 module.exports = {
     mode: 'development',
-    entry: {
-        index: './src/index.js'
-    },
+    entry: entry,
     output: {
         path: path.resolve(__dirname,'dist'),
         filename: '[name].js'
@@ -72,7 +72,14 @@ module.exports = {
         new PurifyCSSPlugin({
             paths: glob.sync(path.join(__dirname, 'src/*.html')),
         }),
-        new webpack.BannerPlugin('翻版必究')
+        new webpack.BannerPlugin('翻版必究'),
+        new webpack.ProvidePlugin({
+            $: "jquery"
+        }),
+        new CopyWebpackPlugin([{
+            from: __dirname + '/src/public',
+            to: './public'
+        }])
     ],
     devServer:{
         contentBase: path.resolve(__dirname,'dist'),
