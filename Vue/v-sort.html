@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <div id = 'app'>
+        <div v-for='user in listSort'>
+            {{ user }}
+        </div>
+    </div>
+    
+
+    <script src="vue.js"></script>
+    <script>
+        //随机排序
+        // let arr = [2, 4, 6, 5, 3];
+        // console.log(
+        //     arr.sort((a,b) => {
+        //     return Math.random() - 0.5;
+        //     })
+        // );
+        
+        new Vue({
+            el: "#app",
+            data: {
+                list: [
+                {
+                        name: '张三',
+                        age: 28
+                    }, {
+                        name: '李四',
+                        age: 40
+                    }, {
+                        name: '王五',
+                        age: 30
+                    }
+                ]
+            },
+            computed: {
+                listSort(){
+                    return this.list.sort((a, b) => {
+                        a.age - b.age;
+                    })
+                }
+            }
+        })
+    </script>
+</body>
+</html>

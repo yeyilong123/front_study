@@ -14,7 +14,8 @@
         </div>
 
         <div v-for="user in list">
-            {{ user }}
+            {{ user.name }} {{ user.age }}
+            <button @click='showName(user.age)'>showName</button>
         </div>
     </div>
     
@@ -27,18 +28,23 @@
                 arr: ['html', 'css', 'javascript'],
                 list:[
                 {
-                    name: 张三,
+                    name: '张三',
                     age: 18
                 },
                 {
-                    name: 李四,
+                    name: '李四',
                     age: 15
                 },
                 {
-                    name: 王五,
+                    name: '王五',
                     age: 30
-                }]
-            }
+                }],
+            },
+            methods: {
+                    showName(obj){
+                        console.log(obj);
+                    }
+                }
         })
     </script>
 </body>
