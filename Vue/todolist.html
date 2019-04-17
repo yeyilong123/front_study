@@ -8,11 +8,27 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap.min.css"
         integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
     <title>Document</title>
+
+    <style>
+        .red {
+            background: #ff0036;
+        }
+    </style>
+
 </head>
 
 <body>
     <div id='app'>
-        <table class="table table-bordered">
+        <h1 class="text-center">ToDoList</h1>
+        <span>查询</span>
+        <input type="text" v-model='searchName'>
+        <button @click='search()'>查询</button>
+        <span>商品：</span>
+        <input type="text" v-model="addName">
+        <span>价格：</span>
+        <input type="number" v-model="addPrice">
+        <button @click="add()">添加</button>
+        <table class="table">
             <thead>
                 <td>选择</td>
                 <td>商品名称</td>
@@ -20,15 +36,22 @@
                 <td>删除</td>
             </thead>
             <tbody>
-                <tr v-for="(item, index) in productList">
-                    <td><input type="checkbox"></input></td>
+                <tr v-for="(item, index) in showList" @click='change(item)' :key='item' :class='{red: item.isRed}'>
+
+                    <td><input type="checkbox" v-model='item.isRed'></input></td>
                     <td>
                         {{ item.name }}
                     </td>
                     <td>
                         {{ item.price }}
                     </td>
-                    <td><button type="button" class="glyphicon glyphicon-remove"></button></td>
+                    <td><button type="button" class="glyphicon glyphicon-remove" @click='deleteOne(index)'></button>
+                    </td>
+
+                </tr>
+                <tr>
+                    <td><button type="button" @click='deleteAll()'>删除选中</button></td>
+                    <td>总价是 {{ totel }} 元</td>
                 </tr>
             </tbody>
         </table>
@@ -43,25 +66,99 @@
                 productList: [
                     {
                         name: '衣服',
-                        price: 123
+                        price: 123,
+                        isRed: false
                     },
                     {
                         name: '裤子',
-                        price: 234
+                        price: 234,
+                        isRed: false
                     },
                     {
                         name: '鞋',
-                        price: 345
+                        price: 345,
+                        isRed: false
                     },
                     {
                         name: 'iponeX',
-                        price: 456
+                        price: 456,
+                        isRed: false
                     },
                     {
                         name: '帽子',
-                        price: 567
+                        price: 567,
+                        isRed: false
                     },
-                ]
+                ],
+                showList: [{
+                    name: '衣服',
+                    price: 123,
+                    isRed: false
+                },
+                {
+                    name: '裤子',
+                    price: 234,
+                    isRed: false
+                },
+                {
+                    name: '鞋',
+                    price: 345,
+                    isRed: false
+                },
+                {
+                    name: 'iponeX',
+                    price: 456,
+                    isRed: false
+                },
+                {
+                    name: '帽子',
+                    price: 567,
+                    isRed: false
+                },
+                ],
+                addName: '',
+                addPrice: 0,
+                searchName: ''
+            },
+            methods: {
+                add() {
+                    this.productList.push({
+                        name: this.addName,
+                        price: this.addPrice,
+                        isRed: false
+                    })
+                    showList = [...productList]
+                },
+                change(item) {
+                    item.isRed = !item.isRed
+                },
+                deleteAll() {
+                    let arr = this.productList.filter(function (obj, index) {
+                        return obj.isRed == false;
+                    })
+                    this.productList = arr;
+                    showList = [...productList]
+                },
+                deleteOne(index) {
+                    this.productList.splice(index, 1);
+                    showList = [...productList]
+                },
+                search() {
+                    showList = this.productList.filter(function (obj, index) {
+                        obj.name == searchName;
+                    })
+                }
+            },
+            computed: {
+                totel() {
+                    let sum = 0;
+                    this.showList.forEach(function (obj, index) {
+                        if (obj.isRed) {
+                            sum += parseInt(obj.price);
+                        }
+                    })
+                    return sum;
+                }
             }
         })
     </script>
