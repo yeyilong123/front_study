@@ -7,6 +7,57 @@
     <title>Document</title>
 </head>
 <body>
-    
+    <div id='app'>
+        <span>是否外加服务</span>
+        <input type="checkbox" v-model='isShow'>
+        <ul v-show='isShow'>
+            <li v-for='service in list'>
+                {{ service.name }}  ({{ service.price }})
+                <input type="checkbox" v-model='payList' :value='service'>
+            </li>
+        </ul>
+        <p>订单信息</p>
+        <ul>
+            <li v-for='service in payList'>
+                {{ service.name }}  ({{ service.price }})
+            </li>
+        </ul>
+        <ul>
+
+        </ul>
+        <p>总金额: {{ allPrice }}</p>
+    </div>
+
+    <script src="vue.js"></script>
+
+    <script>
+        let vm = new Vue({
+            el: '#app',
+            data: {
+                isShow: false,
+                allPrice: 0,
+                list: [
+                {
+                    name: '沙发',
+                    price: 100
+                },
+                {
+                    name: 'wifi',
+                    price: 50
+                },
+                {
+                    name: '电脑',
+                    price: 200
+                }
+                ],
+                payList: [
+                    {
+                        name: '学府宾馆高级房',
+                        price: 300
+                    }
+                ]
+            },
+        });
+    </script>
 </body>
 </html>
