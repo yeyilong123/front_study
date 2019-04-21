@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+
+    <style>
+        .btn {
+            width: 50px;
+            height: 10px;
+        }
+    </style>
+</head>
+
+<body>
+    <div id='app'>
+        <demo></demo>
+        <demo></demo>
+        <demo></demo>
+    </div>
+
+    <template id='tem'>
+        <button @click='add()'>点我+1，此时为 {{ count }} 次</button>
+    </template>
+
+    <script src="vue.js"></script>
+
+    <script>
+        new Vue({
+            el: '#app',
+            components: {
+                'demo': {
+                    template: '#tem',
+                    data: function(){
+                        return{
+                            count: 0
+                        }
+                        
+                    },
+                    methods: {
+                        add() {
+                            this.count++;
+                        }
+                    },
+                },
+
+            }
+
+        })
+    </script>
+</body>
+
+</html>

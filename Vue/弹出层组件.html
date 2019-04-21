@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+
+    <style>
+        .login{
+            width: 300px;
+            height: 350px;
+            background: #ccc;
+        }
+        .registe{
+            width: 300px;
+            height: 3500px;
+            background: #999;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="app">
+        <login name='登录' class='login'>
+            <h4 slot='s1'> 这是登录界面专属插槽 </h4>
+        </login>
+        <login name='注册' class='registe'></login>
+    </div>
+
+    <template id='tem'>
+        <div>
+            <slot>这是{{ name }}界面插槽↑</slot>
+            <slot name='s1'></slot>
+            <p><input type="text"></p>
+            <p><input type="text"></p>
+            <button>{{ name }}</button>
+            <slot>这是{{ name }}界面插槽↓</slot>
+        </div>
+    </template>
+
+    <script src='vue.js'></script>
+
+    <script>
+        new Vue({
+            el: '#app',
+            components: {
+                'login': {
+                    template: '#tem',
+                    props: ['name']
+                }
+            }
+        })
+    </script>
+</body>
+
+</html>

@@ -8,10 +8,22 @@
 </head>
 <body>
     <div id="app">
-
+        <demo name='这是demo1'>
+            <h3 slot='s1'>插槽1</h3>
+            <h3 slot='s2'>插槽2</h3>
+        </demo>
+        <demo name='这是demo2'></demo>
     </div>
 
-    
+    <template id='tem'>
+        <div>
+            <slot name='s1'></slot>
+            <h1>标题</h1>
+            <slot name='s2'></slot>
+            <h2>{{ name }}</h2>
+        </div>
+        
+    </template>
 
     <script src="vue.js"></script>
 
@@ -19,9 +31,9 @@
         new Vue({
             el: '#app',
             components: {
-                demo: {
-                    complate: '',
-                    props: []
+                'demo': {
+                    template: '#tem',
+                    props: ['name']
                 }
             }
         })
