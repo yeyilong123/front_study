@@ -7,24 +7,21 @@
     <title>Document</title>
 </head>
 <body>
-    <div id='app'>
-        <demo></demo>
-        <template id='test'>
-            <h2>hehehe</h2>
-        </template>
+    <div id="app">
+
     </div>
 
-    <script src='vue.js'></script>
+    
+
+    <script src="vue.js"></script>
 
     <script>
-        let vm = new Vue({
+        new Vue({
             el: '#app',
             components: {
-                "demo":{
-                    template: '<h2>hahaha</h2>',
-                },
-                'demo2':{
-                    template: '#test'
+                demo: {
+                    complate: '',
+                    props: []
                 }
             }
         })
