@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id='app'>
+        <span>是否需要额外服务</span>
+        <input type="checkbox" v-model='sele'>
+        <ul >
+            <li v-for='item in serveList'>
+                <span>{{ item.name }}  ({{ item.price }})</span>
+                <input type="checkbox" v-model='serveList'>
+            </li>
+        </ul>
+    </div>
+
+    <script src="vue.js"></script>
+
+    <script>
+        new Vue({
+            el: '#app',
+            data:{
+                serveList: [
+                    {
+                        name: '电脑',
+                        price: 200
+                    },
+                    {
+                        name: 'wifi',
+                        price: 50
+                    },
+                    {
+                        name: '早餐',
+                        price: 30
+                    },
+                    {
+                        name: '小姐',
+                        price: 500
+                    },
+                ],
+                payList: [
+                    {
+                        name: '商务房',
+                        price: 200
+                    },
+                ]
+            }
+        })
+    </script>
+</body>
+
+</html>

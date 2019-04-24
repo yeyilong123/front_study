@@ -1,18 +1,20 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
 </head>
+
 <body>
-    <div id = 'app'>
+    <div id='app'>
         <div v-for='user in listSort'>
             {{ user }}
         </div>
     </div>
-    
+
 
     <script src="vue.js"></script>
     <script>
@@ -23,12 +25,12 @@
         //     return Math.random() - 0.5;
         //     })
         // );
-        
+
         new Vue({
             el: "#app",
             data: {
                 list: [
-                {
+                    {
                         name: '张三',
                         age: 28
                     }, {
@@ -41,7 +43,7 @@
                 ]
             },
             computed: {
-                listSort(){
+                listSort() {
                     return this.list.sort((a, b) => {
                         a.age - b.age;
                     })
@@ -50,4 +52,5 @@
         })
     </script>
 </body>
+
 </html>
