@@ -1,6 +1,6 @@
 <template>
     <div>
-        {{ $store.state.count }}
+        {{ count() }}
         ----
         <button @click='add()'>++</button>
         <button>--</button>
@@ -9,7 +9,11 @@
 
 <script>
     export default {
-
+        computed: {
+            count(){
+                return $store.state.count;
+            }
+        },
     }
 </script>
 
