@@ -1,14 +1,16 @@
 <template>
   <div>
-    <div class="header">
+    <div class="header" :style={background:selectMenu.bg}>
       <span class="header-btn">首页</span>
-      <span class="header-title">电影</span>
+      <span class="header-title">{{ selectMenu.name }}</span>
     </div>
   </div>
 </template>
 
 <script>
-export default {};
+export default {
+  props: ['selectMenu']
+};
 </script>
 
 <style scoped>
