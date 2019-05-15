@@ -16,23 +16,22 @@
 
     <script type="text/babel">
         class MyComponent extends React.Component{
-            constructor(params){
-                super(params);
-                this.clickHandle = this.clickHandle.bind(this);
+            constructor(parmas){
+                super(parmas)
+                this.state={
+                    msg: '1'
+                }
             }
 
-            clickHandle(event){
-                console.log(this.refs.name.value);
-                console.log(this.xx.value);
-                console.log(event.target);
+            change{
+                
             }
 
-            render() {
+            render(){
                 return(
                     <div>
-                        用户名：<input type="text" ref="name" />
-                        密码：<input type="password" ref={input => this.xx=input} />
-                        <button onClick={this.clickHandle}>click</button>
+                        <p>{ this.state.msg }</p>
+                        <button onClick={this.change}>click</button>
                     </div>
                 )
             }
@@ -41,7 +40,8 @@
         ReactDOM.render(
             <MyComponent></MyComponent>
             ,document.getElementById('app')
-        );
+        )
     </script>
+    
 </body>
 </html>

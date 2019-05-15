@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app"></div>
+
+    <script src="react.development.js"></script>
+    <script src="react-dom.development.js"></script>
+    <script src="browser.min.js"></script>
+
+    <script type="text/babel">
+        class Main extends React.Component{
+            constructor(params){
+                super(params);
+                this.state={
+                    arrow:["吃饭","睡觉","打代码"]
+                }
+                this.addList = this.addList.bind(this);
+            }
+
+            addList(val){
+                let arr = [...this.state.arrow]
+                arr.push(val);
+
+                this.setState({
+                    arrow:arr
+                })
+            }
+
+            render(){
+                return(
+                    <div>
+                        <h2>Simple Todo List</h2>
+                        <AddComponent add={this.addList}></AddComponent>
+                        <ShowComponent arrow={this.state.arrow}></ShowComponent>
+                    </div>
+                )
+            }
+        }
+
+        class AddComponent extends React.Component{
+
+            render(){
+                return(
+                    <div>
+                        <input type="text" ref={input=>this.myInput = input}/>
+                        <button onClick={ () => {
+                            this.props.add(this.myInput.value);
+                            this.myInput.value = '';
+                        } }>add #</button>
+                    </div>
+                )
+            }
+        }
+
+        class ShowComponent extends React.Component{
+
+            render(){
+                return(
+                    <div>
+                        <ul>
+                            {
+                                this.props.arrow.map((val,index)=>{
+                                    return <li key={index}>{val}</li>
+                                })
+                            }
+                        </ul>
+                    </div>
+                )
+            }
+        }
+
+
+        ReactDOM.render(
+            <Main></Main>
+            ,document.getElementById("app")
+        )
+    </script>
+</body>
+</html>
