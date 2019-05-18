@@ -16,24 +16,32 @@
 
         <script type="text/babel">
             class Main extends React.Component{
+                constructor(params){
+                    super(params);
+                    this.state={
+                        total: '200',
+                        numA: '100',
+                        numB: '90'
+                    }
+                }
                 render(){
                     return(
                         <div>
-                            <h2>剩余士兵数量为：{}</h2>
-                            <A></A>
-                            <B></B>
+                            <h2>剩余士兵数量为：{ this.state.total }</h2>
+                            <Jj name="A" num={this.state.numA}></Jj>
+                            <Jj name="B" num={this.state.numB}></Jj>
                         </div>
                     )
                 }
             }
 
-            class  extends React.Component{
+            class Jj extends React.Component{
                 render(){
                     return(
                         <div>
                             <input type="number" />
                             <button>调兵</button>
-                            <h4>此时将军A有士兵{}个</h4>
+                            <h4>此时将军{this.props.name}有士兵 { this.props.num } 个</h4>
                         </div>
                     )
                 }
