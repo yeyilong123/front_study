@@ -2,6 +2,7 @@ import React from 'react';
 import { Row, Col } from 'antd';
 import './App.css';
 import NavLeft from './component/NavLeft'
+import CHeader from './component/CHeader'
 
 function App(){
     return (
@@ -10,7 +11,9 @@ function App(){
           <Col span={4}>
             <NavLeft></NavLeft>
           </Col>
-          <Col span={20}>right</Col>
+          <Col span={20}>
+            <CHeader></CHeader>
+          </Col>
         </Row>
 
       </div>

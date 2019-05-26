@@ -8,7 +8,7 @@ export default class NavLeft extends Component {
         return menuList.map((elem) => {
             if(elem.children){
                 return (
-                    <SubMenu key={elem.path}>
+                    <SubMenu key={elem.path} title={<span><Icon type={elem.icon}></Icon>{elem.title}</span>}>
                         { this.createMenu(elem.children) }
                     </SubMenu>
                 )
@@ -32,7 +32,7 @@ export default class NavLeft extends Component {
     render() {
         return (
             <div>
-                <Menu>
+                <Menu theme="dark" mode="inline" defaultOpenKeys={['/admin/student']}>
                     {this.state.list}
                 </Menu>
 
