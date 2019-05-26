@@ -3,6 +3,7 @@ import { Row, Col } from 'antd';
 import './App.css';
 import NavLeft from './component/NavLeft'
 import CHeader from './component/CHeader'
+import CFooter from './component/CFooter'
 
 function App(){
     return (
@@ -13,6 +14,8 @@ function App(){
           </Col>
           <Col span={20}>
             <CHeader></CHeader>
+            {props.student}
+            <CFooter></CFooter>
           </Col>
         </Row>
 

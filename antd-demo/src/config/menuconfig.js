@@ -1,12 +1,12 @@
 const menuList = [
     {
         title:"首页",
-        path:'/admin/home',
+        path:'/home',
         icon:'home'
     },
     {
         title:"11111",
-        path:'/admin/home',
+        path:'/admin/1111',
         icon:'home'
     },
     {
@@ -20,7 +20,7 @@ const menuList = [
             },
             {
                 title:"学生列表",
-                path:'/admin/student/list'
+                path:'/student/list'
             },
             {
                 title:"学生成绩",

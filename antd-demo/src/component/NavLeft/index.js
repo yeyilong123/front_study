@@ -14,9 +14,12 @@ export default class NavLeft extends Component {
                 )
             }
             return (
-                <Menu.Item key={elem.path}>
-                    {elem.title}
-                </Menu.Item>
+                <link to={elem.path}>
+                    <Menu.Item key={elem.path}>
+                        {elem.title}
+                    </Menu.Item>
+                </link>
+                
             )
         })
     }
