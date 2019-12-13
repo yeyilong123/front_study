@@ -5,7 +5,7 @@ import NavLeft from './component/NavLeft'
 import CHeader from './component/CHeader'
 import CFooter from './component/CFooter'
 
-function App(){
+function App(props){
     return (
       <div className="App">
         <Row>
@@ -14,7 +14,7 @@ function App(){
           </Col>
           <Col span={20}>
             <CHeader></CHeader>
-            {props.student}
+            {props.children}
             <CFooter></CFooter>
           </Col>
         </Row>
