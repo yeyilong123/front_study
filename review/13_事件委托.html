@@ -8,7 +8,8 @@
 </head>
 <body>
     
-    <ul>
+    <button id = 'btn'>click</button>
+    <ul id = 'ul1'>
         <li>111</li>
         <li>222</li>
         <li>333</li>
@@ -16,7 +17,19 @@
     </ul>
 
     <script>
-        
+        var oBtn = document.getElementById('btn');
+        var oUl = document.getElementById('ul1');
+        var aLi = document.getElementsByTagName('li');
+
+        oBtn.onclick = function(){
+            var oLi = document.createElement('li');
+            oLi.innerHTML = (Math.random())*100;
+            oUl.appendChild(oLi);
+        }
+
+        oUl.onclick = function(e){
+            console.log(e.target.innerHTML);
+        }
     </script>
 </body>
 </html>
